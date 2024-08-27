@@ -1,0 +1,51 @@
+// Funções de alta ordem
+fun processaInteiro(i: Int, f: (Int) -> Int): Int {
+    return f(i)
+}
+
+fun processaInteiros(i: Int, j: Int, f: (Int, Int) -> Int): Int {
+    return f(i, j)
+}
+
+// Funções
+fun soma(i: Int, j: Int): Int {
+    return i + j
+}
+
+fun multiplica(i: Int, j: Int): Int {
+    return i * j
+}
+
+fun raizQuadrada(numero: Int): Int {
+    for (n in 1..numero) {
+        if (n * n == numero)
+            return n
+    }
+    return -1
+}
+
+// Main
+fun main() {
+    // 1. Chamadas do primeiro passo
+    // Chamadas com funções normais
+    println("Chamadas com funções normais:")
+    println(processaInteiros(5, 3, ::soma))         // Deve imprimir 8 (5 + 3)
+    println(processaInteiros(4, 2, ::multiplica))   // Deve imprimir 8 (4 * 2)
+    println(processaInteiro(16, ::raizQuadrada))    // Deve imprimir 4 (raiz quadrada de 16)
+
+    // 2. Chamadas do segundo passo
+    // Chamadas com expressões lambda equivalentes
+    println("Chamadas com expressões lambda:")
+    println(processaInteiros(5, 3) { x, y -> x + y }) // Deve imprimir 8 (5 + 3)
+    println(processaInteiros(4, 2) { x, y -> x * y }) // Deve imprimir 8 (4 * 2)
+    println(processaInteiro(16) { x -> 
+        var result = -1
+        for (n in 1..x) {
+            if (n * n == x) {
+                result = n
+                break
+            }
+        }
+        result
+    }) // Deve imprimir 4 (raiz quadrada de 16)
+}
