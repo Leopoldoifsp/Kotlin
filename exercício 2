@@ -1,0 +1,15 @@
+fun main() {
+    // Criação do Map com os dados fornecidos
+    val familiaMap: MutableMap<String, String> = mutableMapOf(
+        Pair("Pai", "Pedro"),
+        Pair("Mãe", "Marcela"),
+        Pair("Filho", "João"),
+        Pair("Caçula", "Cadu"),
+        Pair("Pet", "Paçoca")
+    )
+
+    // Imprimindo o conteúdo do Map conforme o formato solicitado
+    for ((key, value) in familiaMap) {
+        println("$key: $value")
+    }
+}
