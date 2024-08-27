@@ -1,0 +1,21 @@
+// Função que soma dois inteiros
+fun soma(i: Int, j: Int) = i + j
+
+// Função que concatena duas strings
+fun cat(i: String, j: String): String = "${i}${j}"
+
+// Função de alta ordem que recebe dois inteiros e uma função
+fun foo(i: Int, j: Int, op: (Int, Int) -> Int): Int {
+    return op(i, j)
+}
+
+// Função de alta ordem que recebe duas strings e uma função
+fun bar(i: String, j: String, op: (String, String) -> String): String {
+    return op(i, j)
+}
+
+fun main() {
+    // Chamada das funções de alta ordem com as funções passadas como parâmetro
+    println(foo(10, 20, ::soma))  // Deve imprimir 30
+    println(bar("Ped", "ro", ::cat))  // Deve imprimir Pedro
+}
