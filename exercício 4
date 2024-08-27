@@ -1,0 +1,18 @@
+// Função para somar dois inteiros
+fun soma(i: Int, j: Int) = i + j
+
+// Função para concatenar duas strings
+fun cat(i: String, j: String): String = "${i}${j}"
+
+// Função de alta ordem genérica
+fun <T, U, R> xpto(a: T, b: U, op: (T, U) -> R): R {
+    return op(a, b)
+}
+
+fun main() {
+    // Chamada da função xpto com a função soma
+    println(xpto(2, 3, ::soma))  // Deve imprimir 5
+    
+    // Chamada da função xpto com a função cat
+    println(xpto("Jo", "ão", ::cat))  // Deve imprimir João
+}
