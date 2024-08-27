@@ -1,0 +1,20 @@
+fun main() {
+    val listaCursos: MutableList<String> = mutableListOf(
+        "Sistemas para Dispositivos Móveis", 
+        "Análise e Desenvolvimento de Sistemas"
+    )
+
+    // Adiciona mais cursos à lista
+    listaCursos.add("Técnico em Informática para Internet")
+    listaCursos.add("Manutenção de Aeronaves")
+    listaCursos.add("Técnico em Células")
+    listaCursos.add("Processos Gerenciais")
+
+    // Filtra os cursos que contêm a palavra "Sistemas"
+    val cursosComSistemas = listaCursos.filter { it.contains("Sistemas", ignoreCase = true) }
+
+    // Imprime a lista no formato solicitado
+    cursosComSistemas.forEachIndexed { index, curso ->
+        println("$index\t– $curso")
+    }
+}
